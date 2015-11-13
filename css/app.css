@@ -25,7 +25,15 @@ h1, h2, h3, h4, p, a {
 }
 
 a {
-  color: #00B7FF;
+  color: #000;
+  font-size: 20px;
+  transition: all ease-in-out 0.3s;
+}
+
+a:hover {
+  color: #b94a48;
+  text-decoration: none;
+  font-size: 30px;
 }
 
 h1 {
@@ -113,6 +121,7 @@ input.form-control {
 
 .past-memories {
   border-left: 2px solid #fff;
+  height: 600px;
 }
 
 .memory {
@@ -136,3 +145,6 @@ button.button.btn {
   margin: 20px 20px 20px 0px;
 }
 
+.years {
+  padding: 10px;
+}

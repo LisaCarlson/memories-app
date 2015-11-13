@@ -31,6 +31,9 @@ angular.module('MyApp', ['ngRoute'])
       $scope.memory2 = '';
       $scope.year = '';
     }
+    $http.get('http://g12-lisa-carlson-memories.cfapps.io/api/v1/memories/years').then(function (response) {
+      $scope.years = response.data;
+    })
     
   }])
   .controller('YearController', ['$scope', '$http', function ($scope, $http) {
