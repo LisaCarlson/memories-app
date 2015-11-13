@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'Portmanteau';
+  src: url('css/fonts/Portmanteau.ttf') format('woff');
+}
+
+body {
+  margin-top: 50px;
+  font-size: 10px;
+  font-family: 'Portmanteau', Fallback, sans-serif;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  color: rgba(255,255,255,0.7);
+  background: url(https://images.unsplash.com/photo-1435771112039-1e5b2bcad966?ixlib=rb-0.3.5&q=80&fm=jpg&s=8cef0388d7e2ae3edea87e41756193db) no-repeat center center scroll;
+  background-color: #000;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  font-weight: light;
+}
+
+h1, h2, h3, h4, p, a {
+  font-family: 'Portmanteau', Fallback, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+textarea.form-control {
+  height: 150px;
+  resize: none;
+  opacity: 0.5;
+  box-shadow: 5px 5px 10px #333;
+}
+
+textarea:hover, input:hover {
+  animation: pulse 1s;
+}
+
+label {
+  font-size: 20px;
+}
+
+input.form-control {
+  opacity: 0.5;
+  box-shadow: 5px 5px 10px #333;
+  width: 50%;
+  display: inline;
+}
+
+.margin-top {
+  margin-top: 40px;
+}
+
+.margin-right {
+  margin-right: 20px;
+}
+
+.button {
+  text-align: center;
+  cursor: pointer;
+  -moz-border-radius: 3px; 
+  -webkit-border-radius: 3px; 
+  border-radius: 3px;
+  color: #fff;
+  background: none;
+  border: 2px solid #fff;
+  font-family: 'Portmanteau', sans-serif;
+  position: relative;
+  margin: auto;
+  transition: all 200ms ease-in-out 0s;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.button:hover {
+  color: #b94a48;
+  border: 2px solid #b94a48;
+  background: #fff;
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+#heading:hover {
+  animation: swing 1s;
+}
