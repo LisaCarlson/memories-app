@@ -1,4 +1,8 @@
 <div ng-controller="YearController">
-<h1>Year</h1>
+  <h1>Memories from year {{year}}</h1>
+  <a href="/">Home</a>
+  <div class="margin-top yearMemory" ng-repeat="yearMemory in yearMemories">
+    <h4><strong><i class="glyphicon glyphicon-chevron-right"></i><span class='stand-out'>When I was a kid</span></strong> {{yearMemory.attributes.old_days}} <strong class="stand-out">but now</strong> {{yearMemory.attributes.these_days}}... </h4>
+  </div>
 
 </div>

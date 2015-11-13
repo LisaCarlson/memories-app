@@ -23,7 +23,6 @@ angular.module('MyApp', ['ngRoute'])
       memoryObj.data.attributes.year = $scope.year;
       $scope.memories.push(memoryObj);
       $http.post('http://g12-lisa-carlson-memories.cfapps.io/api/v1/memories', memoryObj).then(function(response){
-          console.log(response.data)
       }, function(){
           console.log('error');
       });
@@ -36,8 +35,11 @@ angular.module('MyApp', ['ngRoute'])
     })
     
   }])
-  .controller('YearController', ['$scope', '$http', function ($scope, $http) {
-    
+  .controller('YearController', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+    $scope.year = $routeParams.year;
+    $http.get('http://g12-lisa-carlson-memories.cfapps.io/api/v1/memories/'+$scope.year).then(function (response) {
+      $scope.yearMemories = response.data.data;
+    });
   }])
   .config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
@@ -45,7 +47,7 @@ angular.module('MyApp', ['ngRoute'])
         templateUrl: '/partials/home.html',
         controller: 'HomeController'
       })
-      .when('/years', {
+      .when('/years/:year', {
         templateUrl: '/partials/year.html',
         controller: 'YearController'
       })
