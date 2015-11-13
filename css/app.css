@@ -58,6 +58,10 @@ input.form-control {
   margin-top: 40px;
 }
 
+.margin-top-sm {
+  margin-top: 20px;
+}
+
 .margin-right {
   margin-right: 20px;
 }
@@ -121,5 +125,14 @@ input.form-control {
 
 .stand-out {
   font-size: 25px;
+}
+
+.invalid, .invalid:focus {
+  border-color: red;
+}
+
+button.button.btn {
+  display: block;
+  margin: 20px 20px 20px 0px;
 }
 
