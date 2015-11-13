@@ -1,11 +1,21 @@
 angular.module('MyApp', ['ngRoute'])
   .controller('HomeController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
     $scope.memories = [];
-    $http.get('http://g12-lisa-carlson-memories.cfapps.io/api/v1/memories').then(function(response){
-      for (var x in response.data.data) {
-        $scope.memories.push(response.data.data[x]);
-      }
+    //get request to service registry which returns cors issue
+    $http.get('http://galvanize-service-registry.cfapps.io/api/v1/cohorts/g12').then(function(response){
+      var url = response.data.data[0].attributes.url;
+      $http.get(url).then(function(response) {
+        for (var x in response.data.data) {
+          $scope.memories.push(response.data.data[x]);
+        }
+      })
     });
+    //working get request when url is my api uri
+    // $http.get('http://g12-lisa-carlson-memories.cfapps.io/api/v1/memories').then(function(response){
+    //     for (var x in response.data.data) {
+    //       $scope.memories.push(response.data.data[x]);
+    //     }
+    // });
 
     $scope.submit = function() {
       var memoryObj = {
