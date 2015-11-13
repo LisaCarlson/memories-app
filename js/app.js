@@ -1,8 +1,8 @@
 angular.module('MyApp', ['ngRoute'])
   .controller('HomeController', ['$scope', '$http', function ($scope, $http) {
     $http.get('http://g12-lisa-carlson-memories.cfapps.io/api/v1/memories').then(function(response){
-      $scope.memories = response.data;
-      console.log($scope.memories)
+      $scope.memories = response.data.data;
+      console.log($scope.memories);
     });
   }])
   .controller('YearController', ['$scope', '$http', function ($scope, $http) {

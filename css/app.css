@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Portmanteau';
-  src: url('css/fonts/Portmanteau.ttf') format('woff');
+  src: url('fonts/Portmanteau.ttf') format('woff');
 }
 
 body {
@@ -94,3 +94,32 @@ input.form-control {
 #heading:hover {
   animation: swing 1s;
 }
+
+.memories {
+  padding: 40px;
+}
+
+.memories h4 {
+  color: #000;
+}
+
+.spacer {
+  height: 100px;
+}
+
+.past-memories {
+  border-left: 2px solid #fff;
+}
+
+.memory {
+  text-align: left;
+}
+
+.memory > h4 {
+  line-height: 1.3;
+}
+
+.stand-out {
+  font-size: 25px;
+}
+
