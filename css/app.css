@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'Portmanteau';
   src: url('fonts/Portmanteau.ttf') format('woff');
@@ -9,7 +8,6 @@ body {
   font-size: 10px;
   font-family: 'Portmanteau', Fallback, sans-serif;
   width: 100%;
-  height: 100%;
   text-align: center;
   color: rgba(255,255,255,0.7);
   background: url(https://images.unsplash.com/photo-1435771112039-1e5b2bcad966?ixlib=rb-0.3.5&q=80&fm=jpg&s=8cef0388d7e2ae3edea87e41756193db) no-repeat center center scroll;
@@ -61,6 +59,10 @@ input.form-control {
   box-shadow: 5px 5px 10px #333;
   width: 50%;
   display: inline;
+}
+
+.home, .year {
+  min-height: 700px;
 }
 
 .yearMemory > h4 {

@@ -1,8 +1,7 @@
-<div>
-  <h1>Memories from year {{year}}</h1>
-  <a href="/">Home</a>
+<div class="year">
+  <a class="text-danger pull-left" href="/">Home</a>
+  <h1>Memories from year {{year}}</h1> 
   <div class="margin-top yearMemory" ng-repeat="yearMemory in yearMemories">
     <h4><strong><i class="glyphicon glyphicon-chevron-right"></i><span class='stand-out'>When I was a kid</span></strong> {{yearMemory.attributes.old_days}} <strong class="stand-out">but now</strong> {{yearMemory.attributes.these_days}}... </h4>
   </div>
-
 </div>

@@ -1,4 +1,4 @@
-<div>
+<div class="home">
   <div class="page-header">
     <h1 id="heading">When I was a kid...</h1>
   </div>
@@ -6,7 +6,7 @@
     <div class="col-md-9">
       <form name="memoryForm" ng-submit="submit()" novalidate>
         <label class="margin-top text-danger" for="memory1">Tell us about when you were a kid!</label>
-        <textarea id="memory1" class="form-control" ng-model="memory1" ng-class='{invalid: memoryForm.memory1.$invalid && !memoryForm.memory1.$pristine}' name="memory1" required></textarea>
+        <textarea placeholder="When I was a kid..." id="memory1" class="form-control" ng-model="memory1" ng-class='{invalid: memoryForm.memory1.$invalid && !memoryForm.memory1.$pristine}' name="memory1" required></textarea>
         <p class="text-danger text-left margin-top-sm" ng-show="memoryForm.memory1.$invalid && !memoryForm.memory1.$pristine">This field is required</p>
         <label class="margin-top text-danger" for="memory2">But now...</label>
         <textarea id="memory2" class="form-control" ng-model="memory2" ng-class='{invalid: memoryForm.memory2.$invalid && !memoryForm.memory2.$pristine}' name="memory2" required></textarea>
@@ -26,7 +26,7 @@
   </div>
   <div>
     <div class="row memories">
-      <h2 class="pull-left">Ah Memories ~</h2>
+      <h2 class="pull-left">Ahh Memories ~</h2>
       <div class="col-md-12 memory" ng-repeat="memory in memories">
         <h4><strong><i class="glyphicon glyphicon-chevron-right"></i><span class='stand-out'>When I was a kid</span></strong> {{memory.attributes.old_days}} <strong class="stand-out">but now</strong> {{memory.attributes.these_days}}... </h4>
       </div>

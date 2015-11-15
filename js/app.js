@@ -1,21 +1,35 @@
 angular.module('MyApp', ['ngRoute'])
   .controller('HomeController', ['$scope', '$http', '$location', '$rootScope', function ($scope, $http, $location, $rootScope) {
     $scope.memories = [];
-    $http.get('http://galvanize-service-registry.cfapps.io/api/v1/cohorts/g12/kids-these-days?guarantee=http://g12-kate-heese-memories.cfapps.io').then(function(response){
-      $rootScope.url = response.data.data[0].attributes.url = response.data.data[0].attributes.url;
-      $http.get($rootScope.url + '/api/v1/memories').then(function(response) {
-        for (var x in response.data.data) {
-          $scope.memories.push(response.data.data[x]);
-        }
+    $scope.memory1 = '';
+    $scope.memory2 = '';
+    $scope.year = '';
+    var original1 = $scope.memory1;
+    var original2 = $scope.memory2;
+    var original3 = $scope.year;
+    getURL();
+    function getURL() {
+      $http.get('http://galvanize-service-registry.cfapps.io/api/v1/cohorts/g12/kids-these-days?guarantee=http://g12-lisa-carlson-memories.cfapps.io').then(function(response) {
+        $rootScope.url = response.data.data[0].attributes.url;
+        console.log($rootScope.url)
+        $http.get($rootScope.url + '/api/v1/memories').then(function(response) {
+          if (response.status !== 200) {
+            getURL();
+          }
+          else if (!response.data.data) {
+            getURL();
+          }
+          else if (response.data.data.length > 20) {
+            getURL();
+          }
+          else {
+            for (var x in response.data.data) {
+              $scope.memories.push(response.data.data[x]);
+            }
+          }
+        });
       })
-    });
-    // working get request when url is my api uri
-    // $http.get('http://g12-lisa-carlson-memories.cfapps.io/api/v1/memories').then(function(response){
-        // for (var x in response.data.data) {
-        //   $scope.memories.push(response.data.data[x]);
-        // }
-    // });
-
+    }
     $scope.submit = function() {
       var memoryObj = {
       "data": {
@@ -35,16 +49,16 @@ angular.module('MyApp', ['ngRoute'])
       }, function(){
           console.log('error');
       });
-      $scope.memory1 = '';
-      $scope.memory2 = '';
-      $scope.year = '';
+       $scope.memory1 = angular.copy(original1);
+       $scope.memory2 = angular.copy(original2);
+       $scope.year = angular.copy(original3);
+       $scope.memoryForm.$setPristine();
     }
     $rootScope.$watch('url', function(){
       $http.get($rootScope.url + '/api/v1/memories/years').then(function (response) {
         $scope.years = response.data.data;
       });
-    });
-    
+    });   
   }])
   .controller('YearController', ['$scope', '$http', '$routeParams', '$rootScope', function ($scope, $http, $routeParams, $rootScope) {
     $scope.year = $routeParams.year;
